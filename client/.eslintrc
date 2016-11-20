@@ -1,0 +1,52 @@
+{
+  "env": {
+    "browser": true,
+    "node": true,
+    "mocha": true
+  },
+  "globals": {
+    "angular": true,
+    "chai": true,
+    "expect": true,
+    "getService": true,
+    "inject": true,
+    "ionic": true,
+    "moment": true,
+    "Q": true,
+    "R": true,
+    "Rx": true,
+    "sinon": true,
+    "xit": true,
+    "Push": true
+  },
+  "rules": {
+    "array-bracket-spacing": [2, "never"],
+    "brace-style": [2, "1tbs"],
+    "camelcase": 2,
+    "comma-dangle": 2,
+    "comma-spacing": 2,
+    "computed-property-spacing": [2, "never"],
+    "curly": 2,
+    "dot-notation": 2,
+    "eol-last": 0,
+    "eqeqeq": [2, "smart"],
+    "no-extra-parens": 1,
+    "no-floating-decimal": 2,
+    "no-undef": 2,
+    "no-debugger": 2,
+    "no-redeclare": 2,
+    "no-spaced-func": 2,
+    "no-underscore-dangle": 0,
+    "no-unused-vars": [2, {"vars": "all", "args": "after-used"}],
+    "no-undef": 2,
+    "no-use-before-define": [2, "nofunc"],
+    "no-warning-comments": 0,
+    "object-curly-spacing": [2, "never"],
+    "quotes": [2, "single"],
+    "semi": [2, "always"],
+    "space-after-keywords": [2, "always"],
+    "space-infix-ops": 2,
+    "strict": 0,
+    "valid-jsdoc": 0
+  }
+}

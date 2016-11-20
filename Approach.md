@@ -9,8 +9,12 @@ The requirements as understood are produced below.
 ###### APIs
 
 * POST, PUT, GET, DELETE /api/v1/employees
-* POST, PUT, GET /api/v1/employees/{:id}/reviews
-* POST, PUT, GET, DELETE /api/v1/employees/{:id}/reviewers
+* GET /api/v1/employees/{:employeeId}/reviews
+* POST /api/v1/employees/{:employeeId}/period/{:period}/reviewers/{:reviewerId}/review
+* GET, POST /api/v1/employees/{:id}/period/{:period}/reviewers
+  * We're assuming that we will pass the entire list of reviewers
+* GET, PUT /api/v1/reviews/{:reviewId}
+* GET /api/v1/reviewers/{:reviewerId}
 
 ###### Security
 
@@ -41,3 +45,5 @@ The requirements as understood are produced below.
 * Node v6 and evergreen browsers are assumed
 * Clustering, failover etc. is not considered on the server
 * Angular material is being used so that I don't have to think about styling for this
+* For making it simpler to develop, I elected to use MongoDB. There is an assumption that the evaluator has mongodb installed locally (or has connection info available in environment settings).
+

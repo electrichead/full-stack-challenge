@@ -1,0 +1,17 @@
+{
+  "development": {
+    "database": "main",
+    "dialect": "sqlite",
+    "storage": "db/paytm-challenge-nv.db"
+  },
+  "test": {
+    "database": "main",
+    "dialect": "sqlite",
+    "storage": "db/paytm-challenge-nv.db"
+  },
+  "production": {
+    "database": "main",
+    "dialect": "sqlite",
+    "storage": "db/paytm-challenge-nv.db"
+  }
+}
