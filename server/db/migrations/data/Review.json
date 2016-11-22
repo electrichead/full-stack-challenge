@@ -3,6 +3,7 @@
     "period": "q1-2016",
     "employeeId": 1,
     "reviewerId": 2,
+    "employeeReviewerId": 1,
     "reviewContent": "This is a sample review"
   }
 ]

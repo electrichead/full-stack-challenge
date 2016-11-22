@@ -14,7 +14,7 @@ The requirements as understood are produced below.
 * GET, POST /api/v1/employees/{:id}/period/{:period}/reviewers
   * We're assuming that we will pass the entire list of reviewers
 * GET, PUT /api/v1/reviews/{:reviewId}
-* GET /api/v1/reviewers/{:reviewerId}
+* GET /api/v1/reviewers/{:reviewerId}/period/{:period}
 
 ###### Security
 

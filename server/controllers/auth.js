@@ -9,6 +9,7 @@ function login(username, password) {
       username
     },
     attributes: [
+      'id',
       'name',
       'password',
       'isAdmin'

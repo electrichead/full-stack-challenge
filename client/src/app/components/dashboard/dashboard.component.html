@@ -1,0 +1,7 @@
+<h2>Hi, {{name$ | async}}.</h2>
+<app-admin-dashboard
+  *ngIf="isAdmin$ | async"></app-admin-dashboard>
+<app-employee-dashboard
+  *ngIf="!(isAdmin$ | async)"
+  [assignedEmployees]="assignedEmployees$ | async"
+  (periodChange)="handleEmployeePeriodChange($event)"></app-employee-dashboard>

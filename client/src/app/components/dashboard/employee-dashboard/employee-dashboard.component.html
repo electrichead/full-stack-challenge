@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-sm-3">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="form-group">
+          <!-- Hard coded for now since it is not actually a requirement -->
+          <select (change)="handlePeriodChange($event)" class="form-control">
+            <option value="q1-2016">Q1 2016</option>
+            <option value="q2-2016">Q2 2016</option>
+            <option value="q3-2016">Q3 2016</option>
+            <option value="q4-2016">Q4 2016</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-8 col-sm-offset-1">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="panel">
+          <table class="table table-bordered">
+            <tr>
+              <th>Employee</th>
+              <th>Completed</th>
+            </tr>
+            <tr *ngFor="let employee of assignedEmployees">
+              <td>{{employee.name}}</td>
+              <td class="center-block">
+                <span class="glyphicon" [ngClass]="{'glyphicon-ok': employee.completed, 'glyphicon-remove': !employee.completed}" ></span>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

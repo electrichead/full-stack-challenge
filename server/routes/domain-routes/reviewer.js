@@ -11,9 +11,10 @@ const reviewerRouter = express.Router({
   mergeParams: true
 });
 reviewerRouter.param('reviewerId', ensureParamIsInt('reviewerId'));
+reviewerRouter.param('periodId', validatePeriod);
 
-reviewerRouter.get('/reviewers/:reviewerId', (req, res) => {
-  return reviewerCtrl.getReviewerAssignments(req.params.reviewerId)
+reviewerRouter.get('/reviewers/:reviewerId/period/:periodId', (req, res) => {
+  return reviewerCtrl.getReviewerAssignments(req.params.reviewerId, req.params.periodId)
     .then((results) => {
       res
         .status(200)
