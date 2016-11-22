@@ -1,5 +1,5 @@
 import { Component, Output, EventEmitter } from '@angular/core';
-import { LoginDetails } from './login.model';
+import { LoginDetailsViewModel } from './login.viewmodel';
 import {Http} from '@angular/http';
 import IUserInfo from '../../interfaces/iUserInfo';
 import 'rxjs/add/operator/map';
@@ -12,7 +12,7 @@ import 'rxjs/add/operator/map';
 export class LoginComponent {
   @Output() loginOccurred = new EventEmitter();
 
-  model = new LoginDetails('', '');
+  vm = new LoginDetailsViewModel('', '');
   submitting = false;
 
   constructor(
@@ -25,12 +25,12 @@ export class LoginComponent {
 
       this.http.post(
         'http://localhost:9090/api/v1/login',
-        this.model
+        this.vm
       )
       .map(res => res.json())
       .subscribe({
         next: (result: IUserInfo) => {
-          this.model.password = '';
+          this.vm.password = '';
           this.loginOccurred.emit(result);
           this.submitting = false;
         },

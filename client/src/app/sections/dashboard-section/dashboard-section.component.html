@@ -4,4 +4,7 @@
 <app-employee-dashboard
   *ngIf="!(isAdmin$ | async)"
   [assignedEmployees]="assignedEmployees$ | async"
+  (reviewClicked)="handleReviewClicked($event)"
+  (editReviewClicked)="handleEditReviewClicked($event)"
+  (createReviewClicked)="handleCreateReviewClicked($event)"
   (periodChange)="handleEmployeePeriodChange($event)"></app-employee-dashboard>

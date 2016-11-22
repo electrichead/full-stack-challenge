@@ -18,13 +18,14 @@ export class EmployeeDashboardEffectsService {
     .switchMap((period) => {
       let _employeeId;
 
+      // this runs synchronously
       this.employeeId$.take(1).subscribe(employeeId => {
         _employeeId = employeeId;
       });
 
       return this.http.get(`http://localhost:9090/api/v1/reviewers/${_employeeId}/period/${period}`)
-        .map(res => ({ type: ACTIONS.EMPLOYEE_PERIOD_CHANGE_FROM_SERVER_SUCCESS, payload: res.json() }))
-        .catch(() => Observable.of({ type: ACTIONS.EMPLOYEE_PERIOD_CHANGE_FROM_SERVER_FAILED}));
+        .map(res => ({ type: ACTIONS.REMOTE_EMPLOYEE_PERIOD_CHANGE_SUCCESS, payload: res.json() }))
+        .catch(() => Observable.of({ type: ACTIONS.REMOTE_EMPLOYEE_PERIOD_CHANGE_FAILED}));
     });
 
     constructor(

@@ -1,6 +1,6 @@
 interface IAssignedEmployee {
   employeeId: number;
-  name: String;
+  name: string;
   reviewId: number;
 }
 

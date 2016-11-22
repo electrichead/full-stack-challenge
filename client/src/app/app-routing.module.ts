@@ -1,15 +1,15 @@
 import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { DashboardComponent }    from './components/dashboard/dashboard.component';
-import { ReviewComponent }       from './components/review/review.component';
-import { LoginSectionComponent } from './sections/login/login-section.component';
+import { DashboardSectionComponent }    from './sections/dashboard-section/dashboard-section.component';
+import { ReviewSectionComponent }       from './sections/review-section/review-section.component';
+import { LoginSectionComponent } from './sections/login-section/login-section.component';
 
 const AppRoutes: Routes = [
   { path: 'login',  component: LoginSectionComponent },
-  { path: 'dashboard',  component: DashboardComponent },
-  { path: 'review',  component: ReviewComponent },
-  { path: 'review/:id',  component: ReviewComponent },
+  { path: 'dashboard',  component: DashboardSectionComponent },
+  { path: 'review',  component: ReviewSectionComponent },
+  { path: 'review/:id',  component: ReviewSectionComponent },
   { path: '**', redirectTo: '/login', pathMatch: 'full' },
 ];
 
@@ -21,4 +21,5 @@ const AppRoutes: Routes = [
     RouterModule
   ]
 })
-export class AppRoutingModule { }
+
+export class AppRoutingModule { };

@@ -27,7 +27,7 @@ function createReviewForEmployee(employeeId, period, reviewerId, reviewContent) 
       employeeId,
       period,
       reviewContent,
-      reviewerId
+      employeeReviewerId: reviewerId
     });
 }
 

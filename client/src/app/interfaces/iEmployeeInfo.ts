@@ -1,7 +1,7 @@
 interface IEmployeeInfo {
   id: number;
-  name: String;
-  isAdmin: Boolean;
+  name: string;
+  isAdmin: boolean;
 }
 
 export default IEmployeeInfo;

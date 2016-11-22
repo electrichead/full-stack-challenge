@@ -54,15 +54,6 @@ function getReviewerAssignments(reviewerId, period) {
       type: models.sequelize.QueryTypes.SELECT
     }
   );
-  /*return models.EmployeeReviewer.findAndCountAll({
-    where: {
-      reviewerId
-    },
-    include: [{
-      model: models.Review,
-      required: false
-    }]
-  });*/
 }
 
 module.exports = {

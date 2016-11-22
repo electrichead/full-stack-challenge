@@ -11,7 +11,7 @@
           class="form-control"
           id="username"
           required
-          [(ngModel)]="model.username"
+          [(ngModel)]="vm.username"
           name="username"
           #username="ngModel"/>
           <div [hidden]="username.valid || username.pristine"
@@ -26,7 +26,7 @@
           class="form-control"
           id="password"
           required
-          [(ngModel)]="model.password"
+          [(ngModel)]="vm.password"
           name="password"
           #password="ngModel"/>
           <div [hidden]="password.valid || password.pristine"

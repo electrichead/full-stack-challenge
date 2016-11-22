@@ -1,0 +1,13 @@
+<form (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <textarea
+      [(ngModel)]="reviewContent"
+      #reviewText="ngModel"
+      name="reviewText"
+      class="form-control"
+      rows="20"></textarea>
+      <button
+        class="btn btn-submit"
+        type="submit">Save</button>
+  </div>
+</form>

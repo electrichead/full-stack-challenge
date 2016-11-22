@@ -2,7 +2,7 @@ import IEmployeeInfo from './iEmployeeInfo';
 
 interface IUserInfo {
   employeeInfo: IEmployeeInfo;
-  token: String;
+  token: string;
 }
 
 export default IUserInfo;

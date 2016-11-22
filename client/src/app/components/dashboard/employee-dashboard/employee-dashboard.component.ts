@@ -8,6 +8,8 @@ import IAssignedEmployee from '../../../interfaces/iAssignedEmployee';
 export class EmployeeDashboardComponent implements OnInit {
   @Input() assignedEmployees: Array<IAssignedEmployee>;
   @Output() periodChange = new EventEmitter();
+  @Output() editReviewClicked = new EventEmitter();
+  @Output() createReviewClicked = new EventEmitter();
 
   constructor() {
   }
@@ -19,5 +21,12 @@ export class EmployeeDashboardComponent implements OnInit {
 
   handlePeriodChange(evt) {
     this.periodChange.emit(evt.target.value);
+  }
+
+  handleEditReview(employeeReviewData) {
+    this.editReviewClicked.emit(employeeReviewData);
+  }
+  handleCreateReview(employeeReviewData) {
+    this.createReviewClicked.emit(employeeReviewData);
   }
 }

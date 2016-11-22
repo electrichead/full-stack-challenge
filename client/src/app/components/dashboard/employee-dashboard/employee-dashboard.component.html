@@ -23,10 +23,12 @@
               <th>Employee</th>
               <th>Completed</th>
             </tr>
-            <tr *ngFor="let employee of assignedEmployees">
-              <td>{{employee.name}}</td>
+            <tr *ngFor="let employeeReviewData of assignedEmployees">
+              <td>{{employeeReviewData.name}}</td>
               <td class="center-block">
-                <span class="glyphicon" [ngClass]="{'glyphicon-ok': employee.completed, 'glyphicon-remove': !employee.completed}" ></span>
+                <span class="glyphicon" [ngClass]="{'glyphicon-ok': employeeReviewData.completed, 'glyphicon-remove': !employeeReviewData.completed}" ></span>
+                <a (click)="handleEditReview(employeeReviewData)" *ngIf="employeeReviewData.completed">Edit</a>
+                <a (click)="handleCreateReview(employeeReviewData)" *ngIf="!employeeReviewData.completed">Create</a>
               </td>
             </tr>
           </table>
