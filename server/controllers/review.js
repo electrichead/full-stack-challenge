@@ -1,7 +1,6 @@
 const models = require('../db/models');
 
 function modifyReview(reviewId, updatedReviewContent) {
-  console.log('updatedReviewContent', updatedReviewContent);
   return models.Review
     .find({
       where: {

@@ -5,6 +5,14 @@ module.exports = function(sequelize) {
     reviewContent: Sequelize.TEXT
   }, {
     freezeTableName: true,
+    indexes: [
+      {
+        unique: true,
+        fields: [
+          'employeeReviewerId'
+        ]
+      }
+    ],
     classMethods: {
       associate: function(models) {
         Review.belongsTo(models.EmployeeReviewer, {

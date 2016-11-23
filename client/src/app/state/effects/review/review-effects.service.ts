@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Rx';
 import { Actions, Effect } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
 import { Router } from '@angular/router';
+import { Headers, RequestOptions } from '@angular/http';
 import IWrappedAppState from '../../iWrappedAppState';
 import ICurrentReview from '../../../interfaces/iCurrentReview';
 
@@ -28,7 +29,8 @@ export class ReviewEffectsService {
           reviewerId: state.app.userInfo.employeeInfo.id,
           period: state.app.currentPeriod,
           isCreating: state.app.currentReview.isCreating,
-          reviewId: state.app.currentReview.reviewId
+          reviewId: state.app.currentReview.reviewId,
+          token: state.app.userInfo.token
         };
       })
       .take(1)
@@ -37,18 +39,26 @@ export class ReviewEffectsService {
       });
 
       let createEditPromise;
+      let headers = new Headers({
+        'Content-Type': 'application/json',
+        'Authorization': `JWT ${_appState.token}`
+      });
+
+      let options = new RequestOptions({ headers: headers });
 
       if (_appState.isCreating) {
         createEditPromise = this.http.post(
           'http://localhost:9090/api/v1/' +
           `employees/${_appState.employeeId}/period/${_appState.period}/reviewers/${_appState.reviewerId}/reviews`,
-          { reviewContent }
+          { reviewContent },
+          options
         );
       } else {
         createEditPromise = this.http.put(
           'http://localhost:9090/api/v1/' +
           `reviews/${_appState.reviewId}`,
-          { reviewContent }
+          { reviewContent },
+          options
         );
       }
 

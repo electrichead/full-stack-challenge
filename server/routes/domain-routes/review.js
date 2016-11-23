@@ -1,5 +1,6 @@
 const express = require('express');
 const reviewCtrl = require('../../controllers/review');
+const passport = require('passport');
 
 const {
   ensureParamIsInt,
@@ -12,7 +13,7 @@ const reviewRouter = express.Router({
 
 reviewRouter.param('reviewId', ensureParamIsInt('reviewId'));
 
-reviewRouter.get('/reviews/:reviewId', validatePeriod, (req, res) => {
+reviewRouter.get('/reviews/:reviewId', (req, res) => {
   return reviewCtrl.getReviewById(req.params.reviewId)
     .then((results) => {
       res
@@ -27,20 +28,23 @@ reviewRouter.get('/reviews/:reviewId', validatePeriod, (req, res) => {
     });
 });
 
-reviewRouter.put('/reviews/:reviewId', validatePeriod, (req, res) => {
-  return reviewCtrl.modifyReview(req.params.reviewId, req.body)
-    .then((results) => {
-      res
-        .status(200)
-        .json(results);
-    })
-    .then(null, (err) => {
-      console.error(err);
-      res
-        .status(500)
-        .end();
-    });
-});
+reviewRouter.put(
+  '/reviews/:reviewId',
+  passport.authenticate('jwt', {session: false}),
+  (req, res) => {
+    return reviewCtrl.modifyReview(req.params.reviewId, req.body)
+      .then((results) => {
+        res
+          .status(200)
+          .json(results);
+      })
+      .then(null, (err) => {
+        console.error(err);
+        res
+          .status(500)
+          .end();
+      });
+  });
 
 // employee and reviewer-specific routes
 
